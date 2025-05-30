@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class ItemConnector : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private FixedJoint _joint;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        _joint.connectedBody = collision.rigidbody;
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        _joint.connectedBody = hit.rigidbody;
     }
 }
