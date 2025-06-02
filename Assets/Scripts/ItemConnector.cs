@@ -4,12 +4,11 @@ public class ItemConnector : MonoBehaviour
 {
     [SerializeField] private FixedJoint _joint;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        _joint.connectedBody = collision.rigidbody;
-    }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        _joint.connectedBody = hit.rigidbody;
+        if(other.gameObject.name == "Cylinder")
+        {
+            _joint.connectedBody = other.attachedRigidbody;
+        }
     }
 }
