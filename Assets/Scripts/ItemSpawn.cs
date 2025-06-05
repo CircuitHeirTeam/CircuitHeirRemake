@@ -4,25 +4,25 @@ using UnityEngine;
 public class ItemSpawn : MonoBehaviour
 {
     [Header("Точки спавна")]
-    public List<Transform> spawnPoints = new();
+    [SerializeField] private List<Transform> spawnPoints = new();
     
     [Header("Префабы для спавна")]
-    public List<GameObject> prefabsToSpawn;
+    [SerializeField] private List<GameObject> prefabsToSpawn;
 
-    public void OnValidate()
+    private void OnValidate()
     {
         // Обновление спиков в редакторе
         // Триггерится запуском игры
         UpdateSpawnPoints();
     }
     
-    public void Start()
+    private void Start()
     {
         UpdateSpawnPoints();
         SpawnObjects();
     }
 
-    void UpdateSpawnPoints()
+    private void UpdateSpawnPoints()
     {
         spawnPoints.Clear();
 
