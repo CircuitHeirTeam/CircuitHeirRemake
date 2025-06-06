@@ -330,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: aabc042b3de6c68458e8acd4dd2eb068, type: 2}
     - target: {fileID: 919132149155446097, guid: 1c56dbaa041ff1d47ae6f5bd67314d86, type: 3}
       propertyPath: m_Name
-      value: "\u0420\u0430\u0441\u043F\u0438\u043B\u0420\u0443\u043A\u0430L"
+      value: RobotSphere_LHand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -764,7 +764,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: aabc042b3de6c68458e8acd4dd2eb068, type: 2}
     - target: {fileID: 919132149155446097, guid: c906ea74d6e378a4781cbdd74a3f0968, type: 3}
       propertyPath: m_Name
-      value: "\u0420\u0430\u0441\u043F\u0438\u043B\u041D\u043E\u0433\u0430L"
+      value: RobotSphere_LLeg
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1491,7 +1491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 827189851}
   m_Layer: 0
-  m_Name: "\u0420\u043E\u0431\u043E\u0442-\u0428\u0430\u0440"
+  m_Name: RobotSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1985,7 +1985,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: aabc042b3de6c68458e8acd4dd2eb068, type: 2}
     - target: {fileID: 919132149155446097, guid: fd13fa28bf056824aa7e9c9919dda909, type: 3}
       propertyPath: m_Name
-      value: "\u0420\u0430\u0441\u043F\u0438\u043B\u0420\u0443\u043A\u0430R"
+      value: RobotSphere_RHand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2349,6 +2349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Device Simulator
       objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2408,7 +2412,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: aabc042b3de6c68458e8acd4dd2eb068, type: 2}
     - target: {fileID: 919132149155446097, guid: d99e0ae8a9f656b4285b6455f636c9da, type: 3}
       propertyPath: m_Name
-      value: "\u0420\u0430\u0441\u043F\u0438\u043B\u041D\u043E\u0433\u0430R"
+      value: RobotSphere_RLeg
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3151,7 +3155,7 @@ Transform:
   m_GameObject: {fileID: 1538604446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 10}
+  m_LocalPosition: {x: -9.943, y: 0, z: 9.181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3254,7 +3258,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: aabc042b3de6c68458e8acd4dd2eb068, type: 2}
     - target: {fileID: 919132149155446097, guid: 309ff62160b3ad0419ffba4add60a5f7, type: 3}
       propertyPath: m_Name
-      value: "\u0420\u0430\u0441\u043F\u0438\u043B\u0422\u0443\u043B\u043E\u0432\u043E"
+      value: RobotSphere_Body
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 309ff62160b3ad0419ffba4add60a5f7, type: 3}
       propertyPath: m_TagString
