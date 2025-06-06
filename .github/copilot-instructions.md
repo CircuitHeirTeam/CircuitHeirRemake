@@ -4,11 +4,11 @@
 - Active scene:
   - Name: BasicScene
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Anchor
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Anchor, AttachBase, AttachStatic
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI, Robot Parts
 - Active game object:
-  - Name: Connector
+  - Name: РаспилТулово
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
