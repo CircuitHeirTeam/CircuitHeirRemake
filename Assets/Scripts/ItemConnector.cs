@@ -21,8 +21,6 @@ public class ItemConnector : MonoBehaviour
             !parent.gameObject.CompareTag("AttachStatic"))
             return;
         
-        other.transform.SetParent(transform.root.gameObject.transform);
-        
         // Найти точку соединения родителя и передвинуть к ней центр other
         // У родителя обязательно должен быть parentJointPoint.
         Transform parentJointPos = this.transform.Find("parentJointPoint");
@@ -42,9 +40,16 @@ public class ItemConnector : MonoBehaviour
         // Объект больше нельзя поднимать
         other.GetComponent<XRGrabInteractable>().enabled = false;
         
-        // Отключение физики во избежание столкновения с другими конечностями.
-        // TODO Недостаток - объект теперь абсолютно прозрачный.
-        other.GetComponent<Rigidbody>().isKinematic = true;
+        // Сохранение физики частей при отсутствии конфликтов
+        joint.massScale = 1;
+        joint.connectedMassScale = 1;
+        
+        // Подсчёт количества присоединённых частей
+        if (parent.gameObject.CompareTag("AttachBase"))
+        {
+            var count = parent.transform.Find("CounterObj").GetComponent<LimbCounter>();
+            count.Increment();
+        }
 
         Destroy(this);
     }
