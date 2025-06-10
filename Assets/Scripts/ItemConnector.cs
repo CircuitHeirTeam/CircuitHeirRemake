@@ -38,13 +38,13 @@ public class ItemConnector : MonoBehaviour
         // Соединение
         var joint = parent.AddComponent<FixedJoint>();
         joint.connectedBody = other.GetComponent<Rigidbody>();
-
-        //joint.enablePreprocessing = false;
-        joint.massScale = 1;
-        joint.connectedMassScale = 1;
-
+        
         // Объект больше нельзя поднимать
-        other.GetComponent<XRGrabInteractable>().enabled = false; 
+        other.GetComponent<XRGrabInteractable>().enabled = false;
+        
+        // Отключение физики во избежание столкновения с другими конечностями.
+        // TODO Недостаток - объект теперь абсолютно прозрачный.
+        other.GetComponent<Rigidbody>().isKinematic = true;
 
         Destroy(this);
     }
