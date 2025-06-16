@@ -25,20 +25,18 @@ public class ItemConnector : MonoBehaviour
         // У родителя обязательно должен быть parentJointPoint.
         Transform parentJointPos = this.transform.Find("parentJointPoint");
         other.transform.position = parentJointPos.position;
+        other.transform.localRotation = Quaternion.Euler(rotation);
 
         // Переместить на разность позиции центра other и его точки соединения.
         // JointPoint должен быть у всех объектов, которые к чему-либо крепятся.
         Transform jointPoint = other.transform.Find("JointPoint");
         Vector3 jointOffset = other.transform.position - jointPoint.position;
         other.transform.position += jointOffset;
-        other.transform.localRotation = Quaternion.Euler(rotation);
-
         
-
         // Соединение
         var joint = parent.AddComponent<FixedJoint>();
         joint.connectedBody = other.GetComponent<Rigidbody>();
-
+        
         // Объект больше нельзя поднимать
         other.GetComponent<XRGrabInteractable>().enabled = false;
         
