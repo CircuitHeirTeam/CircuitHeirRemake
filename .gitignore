@@ -76,3 +76,7 @@ crashlytics-build.properties
 
 # JetBrains Rider dir
 /.idea/*
+
+# Version control
+packages-lock.json
+ProjectSettings.asset
