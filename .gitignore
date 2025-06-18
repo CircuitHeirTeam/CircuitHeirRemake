@@ -80,3 +80,6 @@ crashlytics-build.properties
 # Version control
 packages-lock.json
 ProjectSettings.asset
+
+# Copilot instructions
+.github/copilot-instructions.md
