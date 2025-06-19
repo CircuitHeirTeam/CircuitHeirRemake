@@ -3,51 +3,45 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class ItemConnector : MonoBehaviour
 {
-    [SerializeField] private GameObject objectToConnect;
+    [SerializeField] private GameObject counterObj;
+    [SerializeField] private GameObject parentJointPoint;
+    [SerializeField] private GameObject jointPoint;
+    
     [SerializeField] private Vector3 rotation;
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject != objectToConnect)
+        if (other.gameObject != jointPoint.transform.parent.gameObject)
             return;
         
         GameObject parent = this.transform.parent.gameObject;
+        bool isStatic = parent.CompareTag("AttachStatic");
+        bool isBase   = parent.CompareTag("AttachBase");
         
-        // Тег AttachBase можно получить только от объекта с тегом AttachStatic.
-        if (parent.gameObject.CompareTag("AttachStatic"))
-            other.gameObject.tag = "AttachBase";
-        // Если объект не Base, присоединения не происходит.
-        if (!parent.gameObject.CompareTag("AttachBase") &&
-            !parent.gameObject.CompareTag("AttachStatic"))
+        if (isStatic) other.tag = "AttachBase";
+        if (!isBase && !isStatic) 
             return;
         
         // Найти точку соединения родителя и передвинуть к ней центр other
-        // У родителя обязательно должен быть parentJointPoint.
-        Transform parentJointPos = this.transform.Find("parentJointPoint");
-        other.transform.position = parentJointPos.position;
+        other.transform.position = parentJointPoint.transform.position;
         other.transform.localRotation = Quaternion.Euler(rotation);
 
-        // Переместить на разность позиции центра other и его точки соединения.
-        // JointPoint должен быть у всех объектов, которые к чему-либо крепятся.
-        Transform jointPoint = other.transform.Find("JointPoint");
-        Vector3 jointOffset = other.transform.position - jointPoint.position;
-        other.transform.position += jointOffset;
+        // Переместить на разность позиции центра other и его точки соединения
+        other.transform.position += other.transform.position - jointPoint.transform.position;
         
         // Соединение
         var joint = parent.AddComponent<FixedJoint>();
         joint.connectedBody = other.GetComponent<Rigidbody>();
+        joint.massScale = 1;
+        joint.connectedMassScale = 1;
         
         // Объект больше нельзя поднимать
         other.GetComponent<XRGrabInteractable>().enabled = false;
         
-        // Сохранение физики частей при отсутствии конфликтов
-        joint.massScale = 1;
-        joint.connectedMassScale = 1;
-        
         // Подсчёт количества присоединённых частей
-        if (parent.gameObject.CompareTag("AttachBase"))
+        if (isBase && counterObj)
         {
-            var count = parent.transform.Find("CounterObj").GetComponent<LimbCounter>();
+            var count = counterObj.GetComponent<LimbCounter>();
             count.Increment();
         }
 
