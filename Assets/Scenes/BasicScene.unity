@@ -894,6 +894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalParts: 4
   messageCanvas: {fileID: 1719671343}
+  _count: 0
 --- !u!1001 &606733023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4681,7 +4682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 83b6571dc40225d4f9b0355d48ae5d09, type: 3}
       propertyPath: m_TagString
-      value: AttachStatic
+      value: AttachBase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

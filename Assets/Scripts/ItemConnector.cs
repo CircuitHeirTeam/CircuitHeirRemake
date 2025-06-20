@@ -15,13 +15,11 @@ public class ItemConnector : MonoBehaviour
             return;
         
         GameObject parent = this.transform.parent.gameObject;
-        bool isStatic = parent.CompareTag("AttachStatic");
-        bool isBase   = parent.CompareTag("AttachBase");
         
-        //if (isStatic) 
-        other.tag = "AttachBase";
-        if (!isBase && !isStatic) 
+        // Наследование полномочий присоединения от базы
+        if (!parent.CompareTag("AttachBase"))
             return;
+        other.tag = "AttachBase";
         
         // Найти точку соединения родителя и передвинуть к ней центр other
         other.transform.position = parentJointPoint.transform.position;
@@ -40,7 +38,7 @@ public class ItemConnector : MonoBehaviour
         other.GetComponent<XRGrabInteractable>().enabled = false;
         
         // Подсчёт количества присоединённых частей
-        if (isBase && counterObj)
+        if (counterObj)
         {
             var count = counterObj.GetComponent<LimbCounter>();
             count.Increment();

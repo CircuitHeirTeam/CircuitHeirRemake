@@ -82,4 +82,4 @@ packages-lock.json
 ProjectSettings.asset
 
 # Copilot instructions
-.github/copilot-instructions.md
+.github/*
