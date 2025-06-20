@@ -5,7 +5,7 @@ public class LimbCounter : MonoBehaviour
     [SerializeField] private int totalParts;
     [SerializeField] private GameObject messageCanvas;
 
-    private int _count = 0;
+    public int _count = 0;
 
     public void Increment()
     {

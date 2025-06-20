@@ -18,7 +18,8 @@ public class ItemConnector : MonoBehaviour
         bool isStatic = parent.CompareTag("AttachStatic");
         bool isBase   = parent.CompareTag("AttachBase");
         
-        if (isStatic) other.tag = "AttachBase";
+        //if (isStatic) 
+        other.tag = "AttachBase";
         if (!isBase && !isStatic) 
             return;
         
